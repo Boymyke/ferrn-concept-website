@@ -1,0 +1,19 @@
+{
+  // Ferrn Agency website concepts. Each client lives in public/<client-slug>/
+  // and is served at https://ferrnagency.com/<client-slug>/
+  "name": "ferrn-concept-website",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true,
+  "preview_urls": true,
+  // One pair of routes per client. These take precedence over the main
+  // ferrn site on the same hostname, for these paths only.
+  "routes": [
+    { "pattern": "ferrnagency.com/splendid-freight*", "zone_name": "ferrnagency.com" },
+    { "pattern": "www.ferrnagency.com/splendid-freight*", "zone_name": "ferrnagency.com" }
+  ]
+}

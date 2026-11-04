@@ -75,12 +75,11 @@ h2{font-size:clamp(32px,4.2vw,52px)}
 .drawer .burger{display:grid;background:transparent;border-color:rgba(255,255,255,.2);color:#fff}
 
 /* hero carousel (full width) */
-.hero{position:relative;min-height:max(720px,100svh);display:flex;flex-direction:column;overflow:hidden;background:#EEF4F2;isolation:isolate}
-.slides{position:absolute;inset:0;z-index:-2}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
-.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 8s linear}
+.hero{position:relative;min-height:max(720px,100svh);display:flex;flex-direction:column;overflow:hidden;clip-path:inset(0);background:#F2F7F5;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.slide{position:absolute;inset:0;margin:0;overflow:hidden;opacity:0;transition:opacity 1.8s ease-in-out}
+.slide img{width:100%;height:100%;object-fit:cover}
 .slide.on{opacity:1}
-.slide.on img{transform:scale(1)}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
   linear-gradient(180deg,rgba(242,247,245,.85) 0%,rgba(242,247,245,0) 140px),
   linear-gradient(90deg,#F2F7F5 0%,rgba(242,247,245,.94) 24%,rgba(242,247,245,.45) 44%,rgba(242,247,245,0) 62%),
@@ -90,19 +89,7 @@ h2{font-size:clamp(32px,4.2vw,52px)}
 .hero h1{font-size:clamp(38px,4.6vw,64px);margin-bottom:22px}
 .hero p.lead{font-size:17px;color:var(--ink-2);max-width:440px}
 .hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.car-ctrl{display:flex;align-items:center;justify-content:flex-end;gap:18px;margin:auto 0 20px}
-.car-dots{display:flex;gap:10px;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--shadow)}
-.car-dots button{display:flex;flex-direction:column;gap:7px;width:76px;border:0;background:none;cursor:pointer;text-align:left;font-size:12px;font-weight:700;color:var(--ink-2);padding:0}
-.car-dots button i{display:block;position:relative;height:3px;border-radius:3px;background:rgba(10,15,13,.18);overflow:hidden}
-.car-dots button i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left}
-.car-dots button.on i::after{animation:fill var(--dur,6s) linear forwards}
-.car-dots button.done i::after{transform:scaleX(1)}
-@keyframes fill{to{transform:scaleX(1)}}
-.car-nav{display:flex;gap:8px}
-.car-nav button{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(10,15,13,.15);background:rgba(255,255,255,.85);backdrop-filter:blur(8px);cursor:pointer;transition:background .2s}
-.car-nav button:hover{background:var(--mint)}
-.car-nav .ico{width:18px;height:18px}
-.hero-cards{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1.2fr 1.5fr;gap:16px}
+.hero-cards{position:relative;z-index:3;margin-top:auto;padding-top:56px;display:grid;grid-template-columns:1fr 1.2fr 1.5fr;gap:16px}
 .hc{border-radius:var(--r-md);padding:24px;background:#fff;box-shadow:var(--shadow);min-height:170px;display:flex;flex-direction:column}
 .hc-dark{background:var(--ink);color:#fff}
 .hc-dark .big{font-size:52px;font-weight:700;letter-spacing:-.04em;line-height:1}
@@ -126,7 +113,7 @@ h2{font-size:clamp(32px,4.2vw,52px)}
 .track-note{font-size:12px;color:var(--teal);min-height:18px;margin-top:8px}
 
 /* marquee */
-.strip{padding:44px 0 20px}
+.strip{position:relative;z-index:1;background:#fff;padding:44px 0 20px}
 .strip-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;font-size:13px;font-weight:700}
 .strip-head span{color:var(--muted);font-weight:500}
 .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
@@ -300,11 +287,7 @@ h2{font-size:clamp(32px,4.2vw,52px)}
   .hero::before{background:linear-gradient(180deg,rgba(242,247,245,.8) 0%,rgba(242,247,245,0) 110px),linear-gradient(0deg,#F2F7F5 0px,rgba(242,247,245,0) 160px);height:400px;bottom:auto;z-index:1}
   .hero-inner{padding:0 20px 28px;position:static}
   .hero-copy{margin-top:4px}
-  .car-ctrl{position:absolute;top:340px;left:20px;right:20px;margin:0;justify-content:space-between;z-index:2}
-  .car-dots{gap:6px;padding:10px 14px}
-  .car-dots button{width:30px;font-size:0;gap:0}
-  .car-nav button{width:38px;height:38px}
-  .hero-cards{grid-template-columns:1fr;margin-top:32px}
+          .hero-cards{grid-template-columns:1fr;margin-top:0;padding-top:32px}
   .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:36px}
   .sec-head p{justify-self:start}
   .svc-head{grid-template-columns:1fr;gap:28px}
@@ -344,10 +327,10 @@ h2{font-size:clamp(32px,4.2vw,52px)}
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Splendid Freight home">{{logo}}<span>Splendid Freight<small>International Ltd</small></span></a>
     <nav class="nav" aria-label="Main">
+      <a href="#track">Tracking</a>
       <a href="#about">About Us</a>
       <a href="#services">Services</a>
       <a href="#solutions">Solutions</a>
-      <a href="#track">Tracking</a>
       <a href="#locations">Locations</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -364,10 +347,10 @@ h2{font-size:clamp(32px,4.2vw,52px)}
     <button class="burger" id="closeMenu" aria-label="Close menu">{{icon:x}}</button>
   </div>
   <nav aria-label="Mobile">
+    <a href="#track">Track Shipment {{icon:arrow-up-right}}</a>
     <a href="#about">About Us {{icon:arrow-up-right}}</a>
     <a href="#services">Services {{icon:arrow-up-right}}</a>
     <a href="#solutions">Solutions {{icon:arrow-up-right}}</a>
-    <a href="#track">Track Shipment {{icon:arrow-up-right}}</a>
     <a href="#locations">Locations {{icon:arrow-up-right}}</a>
     <a href="#contact">Contact {{icon:arrow-up-right}}</a>
   </nav>
@@ -390,18 +373,10 @@ h2{font-size:clamp(32px,4.2vw,52px)}
   <div class="hero-inner">
     <div class="hero-copy">
       <h1 class="rv">Complete Logistics for Your Supply Chain, <span class="mark">Without Delays</span></h1>
-      <p class="lead rv d1">Specialized freight solutions from Nigeria to the world. Full visibility at every stage, and cargo delivered on time.</p>
+      <p class="lead rv d1">Splendid Freight delivers specialized freight solutions from Nigeria to the world, with full visibility at every stage and cargo delivered on time.</p>
       <div class="hero-actions rv d2">
         <a class="btn btn-mint" href="#top">Track Shipment {{icon:arrow-right}}</a>
         <a class="btn btn-ghost" href="#top">Get a Quote</a>
-      </div>
-    </div>
-
-    <div class="car-ctrl rv d3">
-      <div class="car-dots" id="carDots" role="tablist" aria-label="Choose slide"></div>
-      <div class="car-nav">
-        <button id="carPrev" aria-label="Previous slide">{{icon:arrow-left}}</button>
-        <button id="carNext" aria-label="Next slide">{{icon:arrow-right}}</button>
       </div>
     </div>
 
@@ -427,6 +402,25 @@ h2{font-size:clamp(32px,4.2vw,52px)}
         </form>
         <div class="track-note" id="trackNote" aria-live="polite"></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="rv">A logistics partner built around <span class="mark">your growth</span></h2>
+      <div class="about-intro rv d1">
+        <p>Splendid Freight International Ltd. was founded in 2015 to provide exceptional, personalized logistics services that contribute to the growth and prosperity of our clients.</p>
+        <p>We deliver comprehensive supply chain solutions across a wide range of industry sectors, with efficient and secure logistics built around each client's needs.</p>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="b-img rv"><img src="assets/img/warehouse.jpg" alt="Splendid Freight warehouse with loading docks" loading="lazy"></div>
+      <div class="tile rv d1"><span class="tn">01</span>{{icon:target}}<h3>Mission</h3><p>Complete, specialized logistics solutions that improve our clients' supply chains.</p></div>
+      <div class="tile rv d2"><span class="tn">02</span>{{icon:eye}}<h3>Vision</h3><p>To improve our clients' supply chains while being a reliable provider to them.</p></div>
+      <div class="tile rv d1"><span class="tn">03</span>{{icon:heart-handshake}}<h3>Courtesy</h3><p>A core value, built into our team through training, coaching and feedback.</p></div>
+      <div class="tile tile-mint rv d2"><div class="big">2015</div><p>The year Splendid Freight was founded, with one goal: exceptional, personalized logistics for every client.</p></div>
     </div>
   </div>
 </section>
@@ -555,24 +549,7 @@ h2{font-size:clamp(32px,4.2vw,52px)}
   </div>
 </section>
 
-<section class="sec about" id="about">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="rv">A logistics partner built around <span class="mark">your growth</span></h2>
-      <div class="about-intro rv d1">
-        <p>Splendid Freight International Ltd. was founded in 2015 to provide exceptional, personalized logistics services that contribute to the growth and prosperity of our clients.</p>
-        <p>We deliver comprehensive supply chain solutions across a wide range of industry sectors, with efficient and secure logistics built around each client's needs.</p>
-      </div>
-    </div>
-    <div class="bento">
-      <div class="b-img rv"><img src="assets/img/warehouse.jpg" alt="Splendid Freight warehouse with loading docks" loading="lazy"></div>
-      <div class="tile rv d1"><span class="tn">01</span>{{icon:target}}<h3>Mission</h3><p>Complete, specialized logistics solutions that improve our clients' supply chains.</p></div>
-      <div class="tile rv d2"><span class="tn">02</span>{{icon:eye}}<h3>Vision</h3><p>To improve our clients' supply chains while being a reliable provider to them.</p></div>
-      <div class="tile rv d1"><span class="tn">03</span>{{icon:heart-handshake}}<h3>Courtesy</h3><p>A core value, built into our team through training, coaching and feedback.</p></div>
-      <div class="tile tile-mint rv d2"><div class="big">2015</div><p>The year Splendid Freight was founded, with one goal: exceptional, personalized logistics for every client.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <section class="loc" id="locations">
   <div class="wrap">
@@ -652,18 +629,14 @@ h2{font-size:clamp(32px,4.2vw,52px)}
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // hero carousel
-  var slides=[].slice.call(document.querySelectorAll('#slides .slide')),dots=document.getElementById('carDots'),cur=0,timer,DUR=6000;
-  slides.forEach(function(sl,i){var b=document.createElement('button');b.setAttribute('role','tab');b.setAttribute('aria-label','Slide '+(i+1)+': '+sl.dataset.label);b.innerHTML='<i></i>'+sl.dataset.label;b.onclick=function(){go(i,true)};dots.appendChild(b)});
-  var db=[].slice.call(dots.children);
-  dots.style.setProperty('--dur',DUR+'ms');
-  function go(n,user){slides[cur].classList.remove('on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('on');
+  // hero carousel: opacity crossfade, 8s per image
+  var slides=[].slice.call(document.querySelectorAll('#slides .slide')),cur=0;
+  if(!reduce&&slides.length>1)setInterval(function(){
+    slides[cur].classList.remove('on');cur=(cur+1)%slides.length;
     var im=slides[cur].querySelector('img');if(im.loading==='lazy')im.loading='eager';
-    db.forEach(function(b,i){b.classList.remove('on','done');b.setAttribute('aria-selected',i===cur);if(i<cur)b.classList.add('done')});
-    void db[cur].offsetWidth;if(!reduce)db[cur].classList.add('on');clearTimeout(timer);if(!reduce)timer=setTimeout(function(){go(cur+1)},DUR)}
-  document.getElementById('carPrev').onclick=function(){go(cur-1,true)};
-  document.getElementById('carNext').onclick=function(){go(cur+1,true)};
-  go(0);
+    slides[cur].classList.add('on');
+    var nx=slides[(cur+1)%slides.length].querySelector('img');if(nx.loading==='lazy')nx.loading='eager';
+  },8000);
   // mode explorer
   var items=[].slice.call(document.querySelectorAll('.mode-item')),imgs=[].slice.call(document.querySelectorAll('#modeMedia img'));
   var capT=document.getElementById('capT'),capN=document.getElementById('capN');

@@ -38,15 +38,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .logo .word{display:flex;align-items:center;font-family:var(--f-logo);font-weight:800;letter-spacing:.01em;font-size:22px}
 .logo .word svg{width:1.18em;height:1.18em;margin-right:-.12em;margin-top:-.05em}
 .logo .sub{font-family:var(--f-logo);font-weight:700;font-size:7.5px;letter-spacing:.42em;padding-left:2px;opacity:.85}
-.logo.on-dark .word{color:#fff} .logo.on-dark .c-low{stroke:#fff}
+.logo.on-dark .word{color:#fff} .logo.on-dark{--c-low:#fff}
 .logo.on-light .word{color:var(--navy)}
-.logo.on-orange .word,.logo.on-orange .sub{color:var(--navy)} .logo.on-orange .c-top{stroke:#fff}
+.logo.on-orange .word,.logo.on-orange .sub{color:var(--navy)} .logo.on-orange{--c-top:#fff}
 
 /* ── hero shell ── */
 .top{position:relative;padding:22px 0 0}
 .hero{position:relative;background:var(--paper);color:var(--navy);border-radius:0 0 var(--r-xl) var(--r-xl);margin:0 auto;width:min(1240px,calc(100% - 20px));border-radius:var(--r-xl);padding:20px 26px 0;overflow:hidden}
 .nav{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;background:var(--navy);color:#fff;border-radius:var(--pill);padding:12px 14px 12px 28px;max-width:860px;margin:0 auto}
-.nav ul{display:flex;gap:30px;list-style:none;font-size:14px}
+.nav ul{display:flex;align-items:center;gap:30px;list-style:none;font-size:14px}
 .nav ul:last-of-type{justify-content:flex-end}
 .nav a{opacity:.8;transition:opacity .2s,color .2s}
 .nav a:hover{opacity:1;color:var(--orange-2)}
@@ -99,7 +99,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stat+.stat{border-left:1px solid var(--line)}
 .stat b{display:block;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.01em}
 .stat b sup{color:var(--orange);font-size:.6em;top:-.55em}
-.stat span{font-size:13px;color:var(--muted)}
+.stat>span{font-size:13px;color:var(--muted)}
 
 /* ── section heads ── */
 section{position:relative}
@@ -198,6 +198,7 @@ section{position:relative}
 
 /* ── reviews ── */
 .reviews{padding:100px 0 0;overflow:hidden}
+.reviews .wrap{overflow:hidden;padding:2px}
 .rv-track{display:flex;gap:16px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .rv{flex:0 0 calc((100% - 32px)/3);background:var(--navy-2);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px;opacity:.45;transition:opacity .4s}
 .rv.on{opacity:1;border-color:rgba(232,106,28,.5)}
@@ -220,7 +221,7 @@ section{position:relative}
 
 /* ── client view ── */
 .portal{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
-.dash{background:#fff;color:var(--navy);border-radius:28px;padding:18px;box-shadow:0 40px 80px -40px rgba(232,106,28,.55);position:relative}
+.dash{background:#fff;color:var(--navy);border-radius:28px;padding:18px 18px 30px;box-shadow:0 40px 80px -40px rgba(232,106,28,.55);position:relative}
 .dash-top{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 14px;border-bottom:1px solid #ECEEF3}
 .dash-top .who{display:flex;gap:10px;align-items:center;font-size:13px}
 .dash-top .who b{display:block;font-size:14.5px}
@@ -246,7 +247,7 @@ section{position:relative}
 .roster i{width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-style:normal;font-size:10px;display:grid;place-items:center}
 .bar{height:6px;border-radius:var(--pill);background:#ECEEF3;overflow:hidden;margin-top:10px}
 .bar i{display:block;height:100%;width:78%;background:var(--orange);border-radius:inherit}
-.dash-pill{position:absolute;left:-18px;bottom:40px;background:var(--orange);color:var(--navy);font-weight:600;font-size:13px;padding:10px 14px;border-radius:14px;display:flex;gap:8px;align-items:center;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.dash-pill{position:absolute;left:-18px;bottom:-20px;background:var(--orange);color:var(--navy);font-weight:600;font-size:13px;padding:10px 14px;border-radius:14px;display:flex;gap:8px;align-items:center;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
 
 /* ── coverage ── */
 .cover{display:grid;grid-template-columns:1fr 1.1fr;gap:18px}
@@ -402,7 +403,7 @@ footer{margin:60px auto 12px;width:min(1240px,calc(100% - 20px));background:var(
   <defs>
     <symbol id="burst" viewBox="0 0 100 100"><g fill="currentColor"><path d="M50 0l5 38 25-29-17 34 37-8-33 17 33 16-37-7 17 34-25-29-5 38-5-38-25 29 17-34-37 7 33-16L3 35l37 8L23 9l25 29z"/></g></symbol>
     <symbol id="spark" viewBox="0 0 40 40"><path fill="currentColor" d="M20 0c1.6 10.4 9.6 18.4 20 20-10.4 1.6-18.4 9.6-20 20-1.6-10.4-9.6-18.4-20-20C10.4 18.4 18.4 10.4 20 0z"/></symbol>
-    <symbol id="cmark" viewBox="0 0 100 100"><path class="c-top" d="M17.2 43.2A34 34 0 0 1 76 30.1" fill="none" stroke="#E86A1C" stroke-width="15"/><path class="c-low" d="M16.5 57.9A34 34 0 0 0 76 73.9" fill="none" stroke="#0A112B" stroke-width="15"/></symbol>
+    <symbol id="cmark" viewBox="0 0 100 100"><path d="M17.2 43.2A34 34 0 0 1 76 30.1" fill="none" style="stroke:var(--c-top,#E86A1C)" stroke-width="15"/><path d="M16.5 57.9A34 34 0 0 0 76 73.9" fill="none" style="stroke:var(--c-low,#0A112B)" stroke-width="15"/></symbol>
   </defs>
 </svg>
 

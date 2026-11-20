@@ -100,20 +100,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card.hot .go i{background:var(--orange);color:var(--navy)}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}}
 
-.band{margin-top:110px;position:relative}
-.band-top{background:var(--grad);color:#fff;border-radius:var(--r) var(--r) var(--r) 0;display:grid;grid-template-columns:repeat(4,1fr);padding:38px 20px 32px;position:relative;overflow:hidden}
-
-.st{text-align:center}
-.st b{display:block;font-size:clamp(30px,3.6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.st:nth-child(2) b{color:var(--orange-2)}
-.st>span{font-size:13.5px;font-weight:500;color:#E3E6F0}
-.band-bot{display:grid;grid-template-columns:1fr 1.15fr}
-.band-bot .l{background:var(--navy);color:#E3E6F0;border-radius:0 0 0 var(--r);padding:20px 34px 26px;font-size:15px}
-.band-bot .l b{color:var(--orange-2)}
-.band-bot .r{position:relative;background:#fff;border-radius:var(--r) 0 0 0;margin-top:-1px;padding:16px 0 0 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap}
-.band-bot .r span{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#5A6077;font-size:14px;white-space:nowrap}
-.band-bot .r span i{width:34px;height:34px;border-radius:50%;background:var(--grey);display:grid;place-items:center;color:var(--navy)}
-.band-bot .r span .ico{width:17px;height:17px}
+.band{margin-top:110px;background:var(--navy);color:#fff;border-radius:var(--r);overflow:hidden}
+.band-top{display:grid;grid-template-columns:repeat(4,1fr);padding:40px 12px 36px}
+.st{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:0 16px}
+.st+.st{border-left:1px solid rgba(255,255,255,.1)}
+.st .i{width:42px;height:42px;border-radius:12px;background:rgba(232,106,28,.14);color:var(--orange-2);display:grid;place-items:center;margin-bottom:6px}
+.st .i .ico{width:20px;height:20px}
+.st b{display:block;font-size:clamp(32px,3.6vw,46px);font-weight:700;letter-spacing:-.02em;line-height:1}
+.st b sup{font-size:.55em;color:var(--orange-2);top:-.6em;margin-left:2px}
+.st>span{font-size:14px;color:#AEB4C8}
+.band-bot{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#111A3B;border-top:1px solid rgba(255,255,255,.08);padding:18px 30px}
+.band-bot p{font-size:14.5px;color:#C9CEDE;white-space:nowrap}
+.band-bot p b{color:var(--orange-2);font-weight:600}
+.sectors{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;list-style:none}
+.sectors li{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.14);border-radius:var(--pill);padding:7px 14px 7px 10px;font-size:13.5px;font-weight:500;color:#E3E6F0;transition:background .2s,border-color .2s}
+.sectors li:hover{background:rgba(232,106,28,.12);border-color:var(--orange)}
+.sectors .ico{width:16px;height:16px;color:var(--orange-2)}
 
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;padding-top:26px}
 .plan{position:relative;border:1.5px solid #D9DBE3;border-radius:var(--r);padding:44px 22px 22px;text-align:center;display:flex;flex-direction:column;background:#fff;transition:transform .3s,box-shadow .3s}
@@ -300,11 +302,11 @@ footer{margin:90px auto 12px;width:calc(100% - 24px);background:var(--navy);colo
   .menu-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:var(--orange);color:var(--navy)}
   .cards,.plans{grid-template-columns:1fr 1fr}
   .card.hot,.plan.hot{transform:none}
-  .band-top{grid-template-columns:1fr 1fr;row-gap:24px;border-radius:var(--r) var(--r) 0 0}
-  .band-bot{grid-template-columns:1fr}
-  .band-bot .l{border-radius:0 0 var(--r) var(--r)}
-  .band-bot .r{border-radius:0;padding:18px 0 0;justify-content:center;flex-wrap:wrap}
   .ba,.revs{grid-template-columns:1fr 1fr}
+  .band-top{grid-template-columns:1fr 1fr;row-gap:30px}
+  .st:nth-child(3){border-left:0}
+  .band-bot{flex-direction:column;align-items:flex-start}
+  .sectors{justify-content:flex-start}
   .how,.portal,.cover,.contact{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr 1fr 1fr}
   .f-grid .about{grid-column:1/-1}
@@ -318,15 +320,17 @@ footer{margin:90px auto 12px;width:calc(100% - 24px);background:var(--navy);colo
   .hero-strip div{font-size:11.5px;padding:10px 10px 8px;gap:4px}
   .hero-strip span{padding:5px 8px;gap:5px}
   .sec{padding-top:80px}
+  .band-top{padding:30px 6px 26px}
+  .st{padding:0 8px}
+  .st>span{font-size:13px}
+  .band-bot{padding:18px}
+  .band-bot p{white-space:normal}
+  .sectors li{padding:6px 12px 6px 9px;font-size:13px}
   .cards,.plans,.revs{grid-template-columns:1fr}
   .plans{row-gap:40px}
   .ba{grid-template-columns:1fr 1fr;gap:10px}
   .ba figure{padding:8px}
   .ba figcaption{flex-direction:column;align-items:flex-start;gap:4px;font-size:13.5px}
-  .band-top{padding:28px 10px}
-  .band-bot .l{padding:18px 22px 22px}
-  .band-bot .r{gap:12px;flex-wrap:wrap;justify-content:center}
-  .band-bot .r span{font-size:13.5px}
   .ask{flex-direction:column;align-items:stretch;text-align:center;padding:14px}
   .opts,.row2,.cred{grid-template-columns:1fr}
   .dash-cols{grid-template-columns:1fr}
@@ -396,20 +400,20 @@ footer{margin:90px auto 12px;width:calc(100% - 24px);background:var(--navy);colo
 
   <section class="wrap band rv-up" id="about" aria-label="Chogon in numbers">
     <div class="band-top">
-      <div class="st"><b><span data-count="2012" data-from="1998">2012</span></b><span>Founded</span></div>
-      <div class="st"><b><span data-count="98">98</span>%</b><span>Recommend us on Facebook</span></div>
-      <div class="st"><b>24/7</b><span>Guard operations</span></div>
-      <div class="st"><b><span data-count="19">19</span>+</b><span>Cities &amp; areas served</span></div>
+      <div class="st"><span class="i"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v3" /><path d="M16 2v3" /><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 9h18" /><path d="m9 15 2 2 4-4" /></svg></span><b><span data-count="2012" data-from="1998">2012</span></b><span>Founded in Lagos</span></div>
+      <div class="st"><span class="i"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /><path d="M7 10v12" /></svg></span><b><span data-count="98">98</span><sup>%</sup></b><span>Recommend us on Facebook</span></div>
+      <div class="st"><span class="i"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg></span><b>24/7</b><span>Guard operations</span></div>
+      <div class="st"><span class="i"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg></span><b><span data-count="19">19</span><sup>+</sup></b><span>Cities &amp; areas served</span></div>
     </div>
     <div class="band-bot">
-      <div class="l">Trusted by <b>estates, banks and offices</b> across Lagos</div>
-      <div class="r">
-        <span><i><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 22a1 1 0 01-1-1v-4a1 1 0 01.445-.832l3-2a1 1 0 011.11 0l3 2A1 1 0 0122 17v4a1 1 0 01-1 1z" /><path d="M18 22v-3" /><path d="M20 10.418V6a1 1 0 00-1-1c-2 0-4.49-1.19-6.24-2.72a1.17 1.17 0 00-1.52 0C9.5 3.8 7 5 5 5a1 1 0 00-1 1v7c0 4.602 2.67 7.1 6.037 8.603" /></svg></i>Estates</span>
-        <span><i><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg></i>Banks</span>
-        <span><i><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" /><path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" /><circle cx="12" cy="9" r="2" /><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" /><path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" /><path d="M9.5 18h5" /><path d="m8 22 4-11 4 11" /></svg></i>Telecoms</span>
-        <span><i><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" /><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" /></svg></i>Churches</span>
-        <span><i><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M18 4.933V21" /><path d="m4 6 7.106-3.79a2 2 0 0 1 1.788 0L20 6" /><path d="m6 11-3.52 2.147a1 1 0 0 0-.48.854V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a1 1 0 0 0-.48-.853L18 11" /><path d="M6 4.933V21" /><circle cx="12" cy="9" r="2" /></svg></i>Schools</span>
-      </div>
+      <p>Trusted by <b>estates, banks and offices</b> across Lagos</p>
+      <ul class="sectors">
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 22a1 1 0 01-1-1v-4a1 1 0 01.445-.832l3-2a1 1 0 011.11 0l3 2A1 1 0 0122 17v4a1 1 0 01-1 1z" /><path d="M18 22v-3" /><path d="M20 10.418V6a1 1 0 00-1-1c-2 0-4.49-1.19-6.24-2.72a1.17 1.17 0 00-1.52 0C9.5 3.8 7 5 5 5a1 1 0 00-1 1v7c0 4.602 2.67 7.1 6.037 8.603" /></svg>Estates</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></svg>Banks</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" /><path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" /><circle cx="12" cy="9" r="2" /><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" /><path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" /><path d="M9.5 18h5" /><path d="m8 22 4-11 4 11" /></svg>Telecoms</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M10 9h4" /><path d="M12 7v5" /><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9" /><path d="M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14" /></svg>Churches</li>
+        <li><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 21v-3a2 2 0 0 0-4 0v3" /><path d="M18 4.933V21" /><path d="m4 6 7.106-3.79a2 2 0 0 1 1.788 0L20 6" /><path d="m6 11-3.52 2.147a1 1 0 0 0-.48.854V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a1 1 0 0 0-.48-.853L18 11" /><path d="M6 4.933V21" /><circle cx="12" cy="9" r="2" /></svg>Schools</li>
+      </ul>
     </div>
   </section>
 
